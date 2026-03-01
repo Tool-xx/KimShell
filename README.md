@@ -1,4 +1,6 @@
 
+---
+
 ````markdown
 # KimShell v2.0
 
@@ -232,4 +234,4 @@ Made with paranoid precision 🛡️
 </p>
 ```
 
-
+---
