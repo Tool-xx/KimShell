@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KimShell v2.0 — Documentation</title>
+<title>KimShell — Documentation</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
 
@@ -16,7 +16,6 @@
     --green2:   #00cc6a;
     --cyan:     #00d4ff;
     --red:      #ff3366;
-    --yellow:   #ffaa00;
     --text:     #c8c8d8;
     --text-dim: #555568;
     --mono:     'Share Tech Mono', monospace;
@@ -35,7 +34,7 @@
     overflow-x: hidden;
   }
 
-  /* Scanline overlay */
+  /* ── Scanline overlay ── */
   body::before {
     content: '';
     position: fixed; inset: 0; z-index: 9999;
@@ -49,13 +48,7 @@
     pointer-events: none;
   }
 
-  /* Selection */
-  ::selection {
-    background: rgba(0,255,136,0.3);
-    color: #fff;
-  }
-
-  /* Hero */
+  /* ── Hero ── */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
@@ -86,7 +79,6 @@
     text-shadow: 0 0 20px rgba(0,255,136,0.4);
     margin-bottom: 40px;
     animation: flicker 8s infinite;
-    white-space: pre;
   }
 
   @keyframes flicker {
@@ -134,18 +126,10 @@
     color: var(--green);
     letter-spacing: 0.05em;
     transition: border-color 0.2s, box-shadow 0.2s;
-    text-decoration: none;
   }
   .badge:hover {
     border-color: var(--green);
     box-shadow: 0 0 12px rgba(0,255,136,0.15);
-  }
-  .badge.secondary {
-    color: var(--cyan);
-  }
-  .badge.secondary:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 0 12px rgba(0,212,255,0.15);
   }
 
   .scroll-hint {
@@ -160,7 +144,7 @@
     50% { transform: translateY(6px); }
   }
 
-  /* Layout */
+  /* ── Layout ── */
   .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -198,7 +182,7 @@
 
   p { color: var(--text); margin-bottom: 16px; }
 
-  /* Cards */
+  /* ── Cards ── */
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -237,7 +221,7 @@
   .card h3 { font-size: 16px; margin-bottom: 8px; }
   .card p { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.6; }
 
-  /* Table */
+  /* ── Table ── */
   .table-wrap { overflow-x: auto; margin-bottom: 40px; }
   table {
     width: 100%;
@@ -262,18 +246,9 @@
   }
   tr:hover td { background: rgba(0,255,136,0.02); }
   .ok  { color: var(--green); font-family: var(--mono); }
-  .warn{ color: var(--yellow); font-family: var(--mono); }
-  .code-inline {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 2px 6px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--cyan);
-  }
+  .warn{ color: #ffaa00;      font-family: var(--mono); }
 
-  /* Code blocks */
+  /* ── Code ── */
   pre, code {
     font-family: var(--mono);
     font-size: 13px;
@@ -303,9 +278,8 @@
   .code-block .c  { color: var(--text-dim); }   /* comment */
   .code-block .kw { color: var(--cyan); }        /* keyword */
   .code-block .st { color: #ffcc66; }            /* string */
-  .code-block .fn { color: #ff66cc; }            /* function */
 
-  /* Architecture diagram */
+  /* ── Architecture diagram ── */
   .arch {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -321,9 +295,8 @@
   .arch .g { color: var(--green); }
   .arch .c { color: var(--cyan); }
   .arch .d { color: var(--text-dim); }
-  .arch .y { color: var(--yellow); }
 
-  /* Test results */
+  /* ── Test results ── */
   .results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -343,7 +316,7 @@
   .result-item .label { font-size: 13px; color: var(--text-dim); line-height: 1.3; }
   .result-item .val   { font-family: var(--mono); font-size: 11px; color: var(--green); }
 
-  /* Install steps */
+  /* ── Install steps ── */
   .steps { counter-reset: step; list-style: none; }
   .steps li {
     counter-increment: step;
@@ -361,11 +334,10 @@
     line-height: 1;
     padding-top: 2px;
   }
-  .steps li .step-body { width: 100%; }
   .steps li .step-body h3 { margin-bottom: 8px; font-size: 18px; }
   .steps li .step-body p  { font-size: 14px; color: var(--text-dim); margin: 8px 0 0; }
 
-  /* File tree */
+  /* ── File tree ── */
   .filetree {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -374,14 +346,13 @@
     font-family: var(--mono);
     font-size: 13px;
     line-height: 2;
-    overflow-x: auto;
   }
   .filetree .dir  { color: var(--cyan); }
   .filetree .file { color: var(--text); }
   .filetree .comm { color: var(--text-dim); }
   .filetree .hl   { color: var(--green); }
 
-  /* FAQ */
+  /* ── FAQ ── */
   .faq { list-style: none; }
   .faq li {
     background: var(--bg2);
@@ -403,7 +374,7 @@
     font-size: 12px;
   }
 
-  /* Footer */
+  /* ── Footer ── */
   footer {
     border-top: 1px solid var(--border);
     padding: 60px 0;
@@ -418,7 +389,7 @@
   footer p { color: var(--text-dim); font-size: 13px; }
   footer .mono { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.2em; }
 
-  /* Nav */
+  /* ── Nav ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(6,6,10,0.85);
@@ -455,67 +426,9 @@
     100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
   }
 
-  /* Warning box */
-  .warning {
-    background: rgba(255,51,102,0.05);
-    border: 1px solid rgba(255,51,102,0.3);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 32px;
-  }
-  .warning-title {
-    color: var(--red);
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .warning p {
-    color: var(--text-dim);
-    font-size: 14px;
-    margin: 0;
-  }
-
-  /* GitHub buttons */
-  .gh-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 32px;
-  }
-  .gh-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 10px 20px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.2s;
-  }
-  .gh-btn:hover {
-    border-color: var(--green);
-    color: var(--green);
-  }
-  .gh-btn.primary {
-    background: var(--green);
-    color: var(--bg);
-    border-color: var(--green);
-  }
-  .gh-btn.primary:hover {
-    background: var(--green2);
-    box-shadow: 0 0 20px rgba(0,255,136,0.3);
-  }
-
   @media (max-width: 640px) {
     nav ul { display: none; }
     .logo-ascii { display: none; }
-    .gh-buttons { flex-direction: column; }
   }
 </style>
 </head>
@@ -527,7 +440,7 @@
   <ul>
     <li><a href="#protection">Защита</a></li>
     <li><a href="#install">Установка</a></li>
-    <li><a href="#structure">Архитектура</a></li>
+    <li><a href="#structure">Структура</a></li>
     <li><a href="#results">Тесты</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -537,12 +450,12 @@
 <div class="hero">
   <div class="hero-grid"></div>
   <pre class="logo-ascii">
-  ██╗  ██╗██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
-  ██║ ██╔╝██║████╗ ████║██╔════╝██║  ██║██╔════╝██║     ██║
-  █████╔╝ ██║██╔████╔██║███████╗███████║█████╗  ██║     ██║
-  ██╔═██╗ ██║██║╚██╔╝██║╚════██║██╔══██║██╔══╝  ██║     ██║
-  ██║  ██╗██║██║ ╚═╝ ██║███████║██║  ██║███████╗███████╗███████╗
-  ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝</pre>
+██╗  ██╗██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
+██║ ██╔╝██║████╗ ████║██╔════╝██║  ██║██╔════╝██║     ██║
+█████╔╝ ██║██╔████╔██║███████╗███████║█████╗  ██║     ██║
+██╔═██╗ ██║██║╚██╔╝██║╚════██║██╔══██║██╔══╝  ██║     ██║
+██║  ██╗██║██║ ╚═╝ ██║███████║██║  ██║███████╗███████╗███████╗
+╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝</pre>
 
   <h1 class="hero-title"><span>Kim</span>Shell</h1>
   <p class="hero-sub">Secure Browser Environment · v2.0 · Windows</p>
@@ -555,15 +468,10 @@
     <span class="badge"><span class="pulse"></span>Active</span>
   </div>
 
-  <div class="gh-buttons">
-    <a href="https://github.com/Tool-xx/KimShell" class="gh-btn primary">View on GitHub →</a>
-    <a href="#install" class="gh-btn">Quick Start ↓</a>
-  </div>
-
-  <p class="scroll-hint" style="margin-top: 60px;">↓ scroll ↓</p>
+  <p class="scroll-hint">↓ &nbsp; scroll &nbsp; ↓</p>
 </div>
 
-<!-- Overview -->
+<!-- What is it -->
 <section>
   <div class="container">
     <p class="section-label">// overview</p>
@@ -573,32 +481,22 @@
       <div class="card">
         <div class="card-icon">🧬</div>
         <h3>Поддельный профиль железа</h3>
-        <p>CPU, GPU, RAM, разрешение экрана и User-Agent генерируются случайно каждую сессию. Сайты видят несуществующий компьютер с AMD Ryzen или Intel Core.</p>
+        <p>CPU, GPU, RAM, разрешение экрана и User-Agent генерируются случайно каждую сессию. Сайты видят несуществующий компьютер.</p>
       </div>
       <div class="card">
         <div class="card-icon">🧩</div>
         <h3>JS-расширение реального времени</h3>
-        <p>Перехватывает Canvas, WebGL, Battery, AudioContext, Plugins, Fonts и десятки других API до того как страница их прочитает. Внедряется на <code>document_start</code>.</p>
+        <p>Перехватывает Canvas, WebGL, Battery, AudioContext, Plugins и десятки других API до того как страница их прочитает.</p>
       </div>
       <div class="card">
         <div class="card-icon">🗂️</div>
         <h3>Изолированный профиль</h3>
-        <p>Каждый запуск — новая временная директория в <code>%APPDATA%\KimShell\</code>. При закрытии все данные перезаписываются в 3 прохода и удаляются.</p>
+        <p>Каждый запуск — новая временная директория. При закрытии все данные перезаписываются в 3 прохода и удаляются.</p>
       </div>
       <div class="card">
         <div class="card-icon">🛡️</div>
         <h3>Не трогает основной Brave</h3>
-        <p>Завершение процессов строго по PID (<code>taskkill /T /PID</code>), не по имени. Системный браузер, сессии и закладки пользователя не затрагиваются.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔐</div>
-        <h3>Secure Drop Zone</h3>
-        <p>Drag & Drop файлов с автоматическим AES-256-GCM шифрованием в карантин. Опасные расширения (.exe, .dll, .js) помечаются автоматически.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>VPN-детект</h3>
-        <p>Проверка публичного IP через несколько серверов, определение VPN/Proxy по ASN и хостингу. Предупреждает о прямом соединении.</p>
+        <p>Завершение процессов строго по PID нашего экземпляра. Системный браузер, сессии и закладки пользователя не затрагиваются.</p>
       </div>
     </div>
   </div>
@@ -610,11 +508,6 @@
     <p class="section-label">// fingerprinting vectors</p>
     <h2>Что подменяется</h2>
 
-    <div class="warning">
-      <div class="warning-title">⚠️ Важно</div>
-      <p>KimShell скрывает браузерный отпечаток, но не IP-адрес. Для полной анонимности используй VPN вместе с KimShell. Включи <strong>Cloudflare DNS (1.1.1.1)</strong> в настройках Brave для защиты от DNS-утечек.</p>
-    </div>
-
     <div class="table-wrap">
       <table>
         <tr>
@@ -623,120 +516,22 @@
           <th>Статус</th>
           <th>Описание</th>
         </tr>
-        <tr>
-          <td>Canvas 2D</td>
-          <td><code class="code-inline">getImageData / toDataURL</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Pixel noise ±1 per channel — уникальный хеш каждую сессию, не связанный с реальным устройством</td>
-        </tr>
-        <tr>
-          <td>WebGL Vendor</td>
-          <td><code class="code-inline">getParameter(0x9245/46)</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Поддельный GPU из профиля (NVIDIA RTX 3060/3070/3080 или AMD RX 6700 XT/6800)</td>
-        </tr>
-        <tr>
-          <td>CPU Cores</td>
-          <td><code class="code-inline">navigator.hardwareConcurrency</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Из сгенерированного профиля (4-16 ядер)</td>
-        </tr>
-        <tr>
-          <td>RAM</td>
-          <td><code class="code-inline">navigator.deviceMemory</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>8, 16 или 32 ГБ из профиля</td>
-        </tr>
-        <tr>
-          <td>Timezone</td>
-          <td><code class="code-inline">Date.getTimezoneOffset() + Intl.DateTimeFormat</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Американские (EST, CST, PST) или европейские (GMT, CET) таймзоны</td>
-        </tr>
-        <tr>
-          <td>Battery API</td>
-          <td><code class="code-inline">navigator.getBattery()</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>charging: false, level: 0.72, dischargingTime: 36000</td>
-        </tr>
-        <tr>
-          <td>Media Devices</td>
-          <td><code class="code-inline">enumerateDevices()</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Только 2 анонимных устройства (audioinput, audiooutput), labels пустые</td>
-        </tr>
-        <tr>
-          <td>Plugins</td>
-          <td><code class="code-inline">navigator.plugins</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Стандартный Chrome PDF-список (4 плагина), длина фиксирована</td>
-        </tr>
-        <tr>
-          <td>AudioContext</td>
-          <td><code class="code-inline">getFloatFrequencyData()</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Noise на аудио-данных, sampleRate: 44100</td>
-        </tr>
-        <tr>
-          <td>Font Metrics</td>
-          <td><code class="code-inline">getComputedStyle()</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>±0.01px jitter на width/height — ломает измерительные атаки</td>
-        </tr>
-        <tr>
-          <td>Sensors</td>
-          <td><code class="code-inline">permissions.query()</code></td>
-          <td class="ok">✓ BLOCKED</td>
-          <td>Акселерометр, гироскоп, магнетометр, ambient-light → state: 'denied'</td>
-        </tr>
-        <tr>
-          <td>WebRTC</td>
-          <td>Brave flag + JS</td>
-          <td class="ok">✓ BLOCKED</td>
-          <td><code class="code-inline">--force-webrtc-ip-handling-policy=disable_non_proxied_udp</code></td>
-        </tr>
-        <tr>
-          <td>Screen</td>
-          <td>JS + <code class="code-inline">--window-size</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>1920×1080, 2560×1440, 1366×768 или 1920×1200</td>
-        </tr>
-        <tr>
-          <td>User-Agent</td>
-          <td>JS + <code class="code-inline">--user-agent</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Chrome 120-126 на Windows 10 x64</td>
-        </tr>
-        <tr>
-          <td>window.chrome</td>
-          <td><code class="code-inline">window.chrome.runtime</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Добавлен объект chrome.runtime — отсутствие = детект автоматизации</td>
-        </tr>
-        <tr>
-          <td>Permissions</td>
-          <td><code class="code-inline">navigator.permissions</code></td>
-          <td class="ok">✓ SPOOFED</td>
-          <td>Все сенсоры возвращают 'denied' вместо 'prompt'</td>
-        </tr>
-        <tr>
-          <td>Automation flag</td>
-          <td><code class="code-inline">navigator.webdriver</code></td>
-          <td class="ok">✓ REMOVED</td>
-          <td>Удаляется из прототипа navigator</td>
-        </tr>
-        <tr>
-          <td>DNS</td>
-          <td>Системный DNS</td>
-          <td class="warn">⚠ MANUAL</td>
-          <td>Включи Cloudflare DNS (1.1.1.1) в настройках Brave</td>
-        </tr>
-        <tr>
-          <td>Системные шрифты</td>
-          <td>Font enumeration</td>
-          <td class="warn">⚠ PARTIAL</td>
-          <td>~98 стандартных Windows-шрифтов видны, но список не уникален</td>
-        </tr>
+        <tr><td>Canvas</td><td><code>getImageData / toDataURL</code></td><td class="ok">✓ SPOOFED</td><td>Pixel noise ±1 per channel — уникальный хеш каждую сессию</td></tr>
+        <tr><td>WebGL Vendor</td><td><code>getParameter(0x9245/46)</code></td><td class="ok">✓ SPOOFED</td><td>Поддельный GPU из профиля</td></tr>
+        <tr><td>CPU Cores</td><td><code>navigator.hardwareConcurrency</code></td><td class="ok">✓ SPOOFED</td><td>Из сгенерированного профиля</td></tr>
+        <tr><td>RAM</td><td><code>navigator.deviceMemory</code></td><td class="ok">✓ SPOOFED</td><td>Из сгенерированного профиля</td></tr>
+        <tr><td>Timezone</td><td><code>Date.getTimezoneOffset() + Intl</code></td><td class="ok">✓ SPOOFED</td><td>Американская / европейская TZ</td></tr>
+        <tr><td>Battery</td><td><code>navigator.getBattery()</code></td><td class="ok">✓ SPOOFED</td><td>charging: false, level: 0.72</td></tr>
+        <tr><td>Media Devices</td><td><code>enumerateDevices()</code></td><td class="ok">✓ SPOOFED</td><td>2 анонимных устройства</td></tr>
+        <tr><td>Plugins</td><td><code>navigator.plugins</code></td><td class="ok">✓ SPOOFED</td><td>Стандартный Chrome PDF-список</td></tr>
+        <tr><td>AudioContext</td><td><code>getFloatFrequencyData()</code></td><td class="ok">✓ SPOOFED</td><td>Noise на аудио-данных</td></tr>
+        <tr><td>Font Metrics</td><td><code>getComputedStyle()</code></td><td class="ok">✓ SPOOFED</td><td>±0.01px jitter на размерах</td></tr>
+        <tr><td>Sensors</td><td><code>permissions.query()</code></td><td class="ok">✓ BLOCKED</td><td>Акселерометр / гироскоп → denied</td></tr>
+        <tr><td>WebRTC</td><td>Brave flag</td><td class="ok">✓ BLOCKED</td><td>Нет утечки реального IP</td></tr>
+        <tr><td>Screen</td><td>JS + <code>--window-size</code></td><td class="ok">✓ SPOOFED</td><td>Поддельное разрешение</td></tr>
+        <tr><td>User-Agent</td><td>JS + <code>--user-agent</code></td><td class="ok">✓ SPOOFED</td><td>Поддельный Chrome UA</td></tr>
+        <tr><td>DNS</td><td>Системный DNS</td><td class="warn">⚠ MANUAL</td><td>Включи Cloudflare DNS в настройках Brave</td></tr>
+        <tr><td>Системные шрифты</td><td>Font enumeration</td><td class="warn">⚠ PARTIAL</td><td>~98 стандартных Windows-шрифтов видны</td></tr>
       </table>
     </div>
   </div>
@@ -754,7 +549,7 @@
           <h3>Клонировать репозиторий</h3>
           <div class="code-block">
             <span class="tag">bash</span>
-            <code>git clone https://github.com/Tool-xx/KimShell 
+            <code>git clone https://github.com/Tool-xx/KimShell
 cd kimshell</code>
           </div>
         </div>
@@ -776,21 +571,16 @@ cd kimshell</code>
             <span class="tag">bash</span>
             <code>python main.py</code>
           </div>
-          <p>При первом запуске автоматически скачается Brave Browser (~120 МБ) из официального репозитория. При повторных — используется кешированная версия из <code>%APPDATA%\KimShell\brave_portable\</code>.</p>
+          <p>При первом запуске автоматически скачается Brave (~120 МБ). При повторных — загрузки нет.</p>
         </div>
       </li>
       <li>
         <div class="step-body">
           <h3>Опционально: закрыть DNS-утечку</h3>
-          <p>В Brave: <strong>Settings → Privacy and security → Security → Use secure DNS → With: Cloudflare (1.1.1.1)</strong></p>
+          <p>В Brave: <strong>Settings → Privacy → Use secure DNS → Cloudflare (1.1.1.1)</strong></p>
         </div>
       </li>
     </ol>
-
-    <div class="warning">
-      <div class="warning-title">⚠️ Требования</div>
-      <p>Windows 10 версии 1903 или новее (64-bit). Windows 7/8 не поддерживаются из-за требований PyQt6 и актуальных версий Brave. Минимум 4GB RAM рекомендуется для стабильной работы.</p>
-    </div>
   </div>
 </section>
 
@@ -803,59 +593,45 @@ cd kimshell</code>
     <div class="filetree">
 <span class="dir">kimshell/</span>
 │
-├── <span class="hl">main.py</span>                      <span class="comm">← Точка входа, проверка Windows, инициализация QApplication</span>
-├── requirements.txt           <span class="comm">← PyQt6>=6.6.1, requests>=2.31.0, psutil>=5.9.6, pycryptodome>=3.20.0</span>
-├── README.md
+├── <span class="hl">main.py</span>                      <span class="comm">← Точка входа, проверка Windows</span>
+├── requirements.txt
 │
-├── <span class="dir">core/</span>                        <span class="comm">← Ядро системы (не зависит от GUI)</span>
-│   ├── <span class="hl">hardware_spoof.py</span>        <span class="comm">← Генератор профилей (CPU/GPU/RAM/UA/Timezone/Screen)</span>
-│   ├── <span class="hl">js_injector.py</span>           <span class="comm">← Создание Brave-расширения с подстановкой реальных значений профиля</span>
-│   ├── <span class="hl">brave_manager.py</span>         <span class="comm">← Загрузка Brave из GitHub, управление профилем, build_command()</span>
-│   ├── <span class="hl">network_checker.py</span>       <span class="comm">← VPN-детект через ipinfo.io и ip-api.com (HTTPS)</span>
-│   └── <span class="hl">cleanup.py</span>               <span class="comm">← Secure wipe (3 passes: 0x00, 0xFF, random), atexit, SIGINT</span>
+├── <span class="dir">core/</span>
+│   ├── <span class="hl">hardware_spoof.py</span>        <span class="comm">← Генератор профилей (CPU/GPU/RAM/UA)</span>
+│   ├── <span class="hl">js_injector.py</span>           <span class="comm">← Создание Brave-расширения с реальными значениями профиля</span>
+│   ├── <span class="hl">brave_manager.py</span>         <span class="comm">← Загрузка, профиль, команда запуска</span>
+│   ├── <span class="hl">network_checker.py</span>       <span class="comm">← VPN-детект, публичный IP</span>
+│   └── <span class="hl">cleanup.py</span>               <span class="comm">← Secure wipe, atexit, SIGINT</span>
 │
-├── <span class="dir">gui/</span>                         <span class="comm">← PyQt6 интерфейс</span>
-│   ├── <span class="hl">main_window.py</span>           <span class="comm">← Главное окно, InitThread (разделяет BraveManager с основным потоком)</span>
-│   ├── <span class="hl">loading_screen.py</span>        <span class="comm">← Анимированный экран загрузки с прогрессом и логом</span>
-│   ├── <span class="hl">dnd_widget.py</span>            <span class="comm">← SecureDropZone: Drag & Drop + AES-256-GCM карантин</span>
-│   └── <span class="hl">styles.py</span>                <span class="comm">← Тёмная тема QSS (цвета #0a0a0f, #00ff88, etc)</span>
+├── <span class="dir">gui/</span>
+│   ├── <span class="hl">main_window.py</span>           <span class="comm">← Главное окно, InitThread (разделяет BraveManager)</span>
+│   ├── <span class="hl">loading_screen.py</span>        <span class="comm">← Анимированный экран загрузки</span>
+│   ├── <span class="hl">dnd_widget.py</span>            <span class="comm">← Drag & Drop + AES-256-GCM карантин</span>
+│   └── <span class="hl">styles.py</span>                <span class="comm">← Тёмная тема QSS</span>
 │
-└── <span class="dir">utils/</span>                       <span class="comm">← Вспомогательные утилиты</span>
-    ├── <span class="hl">config.py</span>                <span class="comm">← Пути (%APPDATA%\KimShell), KimShellConfig dataclass</span>
-    └── <span class="hl">helpers.py</span>               <span class="comm">← Logger (console), secure_wipe(), generate_session_id(), run_command()</span>
+└── <span class="dir">utils/</span>
+    ├── <span class="hl">config.py</span>                <span class="comm">← Пути (%APPDATA%\KimShell), параметры</span>
+    └── <span class="hl">helpers.py</span>               <span class="comm">← Logger, secure_wipe, run_command</span>
     </div>
 
     <br>
-    <h3>Поток данных при запуске</h3>
+    <h3>Поток данных</h3>
     <div class="arch">
-<span class="g">HardwareSpoofer.generate_profile(seed=session_id)</span>
+<span class="g">HardwareSpoofer.generate_profile(seed)</span>
         │
-        ├──▶ <span class="c">to_brave_flags()</span>        <span class="d">→ CLI: --user-agent, --window-size, --lang, --disable-gpu, etc</span>
+        ├──▶ <span class="c">to_brave_flags()</span>        <span class="d">→ --user-agent, --window-size, --lang ...</span>
         │
         ├──▶ <span class="c">JSInjector.create_extension(profile)</span>
         │           │
-        │           └──▶ content.js  <span class="d">(все __PLACEHOLDERS__ заменены на реальные значения профиля)</span>
-        │                  └──▶ manifest.json (world: "MAIN", run_at: "document_start")
+        │           └──▶ content.js  <span class="d">(все __PLACEHOLDERS__ заменены реальными значениями)</span>
         │
         └──▶ <span class="c">BraveManager.create_profile(asdict(profile))</span>
                     │
-                    ├──▶ Preferences  <span class="d">(window_placement, clear_data.on_exit, shields_settings)</span>
-                    └──▶ Secure Preferences <span class="d">(extensions.settings, protection.macs)</span>
+                    └──▶ Preferences  <span class="d">(window size, clear-on-exit, shields)</span>
 
-<span class="g">Popen(cmd, env=env_vars, CREATE_NEW_PROCESS_GROUP | BELOW_NORMAL_PRIORITY_CLASS)</span>
+<span class="g">Popen(cmd, env=env, CREATE_NEW_PROCESS_GROUP)</span>
         │
-        └──▶ brave.exe <span class="d">[PID записан в self._brave_proc → kill /T /PID при cleanup]</span>
-    </div>
-
-    <h3>Ключевой фикс в v2.0</h3>
-    <div class="code-block">
-      <span class="tag">bugfix</span>
-      <code><span class="c"># Было: Path() возвращает "." и .exists() даёт True</span>
-<span class="c"># brave_exe оставался "." → Popen(".") → WinError 5</span>
-
-<span class="c"># Стало: .is_file() проверяет что это реальный файл</span>
-<span class="kw">def</span> <span class="fn">_exe_ready</span>(self) -> bool:
-    <span class="kw">return</span> self.brave_exe != _UNSET <span class="kw">and</span> self.brave_exe.is_file()</code>
+        └──▶ brave.exe <span class="d">[PID записан → kill только по PID при cleanup]</span>
     </div>
   </div>
 </section>
@@ -865,27 +641,19 @@ cd kimshell</code>
   <div class="container">
     <p class="section-label">// test results</p>
     <h2>Результаты тестов</h2>
-    <p>Протестировано на <strong>coveryourtracks.eff.org</strong> и <strong>browserleaks.com</strong> в режиме "Test your browser":</p>
+    <p>Протестировано на <strong>coveryourtracks.eff.org</strong> и <strong>browserleaks.com</strong>:</p>
     <br>
     <div class="results">
-      <div class="result-item"><span class="icon">🚫</span><div><div class="val">BLOCKED</div><div class="label">Tracking ads (EFF)</div></div></div>
-      <div class="result-item"><span class="icon">🚫</span><div><div class="val">BLOCKED</div><div class="label">Invisible trackers</div></div></div>
-      <div class="result-item"><span class="icon">🚫</span><div><div class="val">NO LEAK</div><div class="label">WebRTC IP (local & public)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">Timezone (UTC offset)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">Battery API (level/charging)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">WebGL Vendor/Renderer</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">NOISED</div><div class="label">Canvas fingerprint (unique)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">Media devices (2 generic)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">Plugins (4 PDF viewers)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">User-Agent (Chrome 120-126)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">CPU cores (4-16)</div></div></div>
-      <div class="result-item"><span class="icon">🎭</span><div><div class="val">SPOOFED</div><div class="label">Device memory (8-32 GB)</div></div></div>
-    </div>
-
-    <div class="warning">
-      <div class="warning-title">⚠️ Ограничения</div>
-      <p><strong>Secure wipe на SSD/NVMe:</strong> Из-за wear leveling и контроллера флеш-памяти, перезапись файла физически не гарантирует удаление данных с диска. Для критичных сценариев используй шифрование диска (BitLocker/VeraCrypt).</p>
-      <p><strong>Canvas fingerprint:</strong> Хеш уникален каждую сессию — это нормально. Главное что он не совпадает с твоим реальным браузером и меняется при каждом запуске.</p>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">BLOCKED</div><div class="label">Tracking ads</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">BLOCKED</div><div class="label">Invisible trackers</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">NO LEAK</div><div class="label">WebRTC IP</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">SPOOFED</div><div class="label">Timezone</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">SPOOFED</div><div class="label">Battery API</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">DISABLED</div><div class="label">WebGL</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">NOISED</div><div class="label">Canvas fingerprint</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">SPOOFED</div><div class="label">Media devices</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">SPOOFED</div><div class="label">Plugins list</div></div></div>
+      <div class="result-item"><span class="icon">✅</span><div><div class="val">FAKE</div><div class="label">User-Agent</div></div></div>
     </div>
   </div>
 </section>
@@ -899,35 +667,27 @@ cd kimshell</code>
     <ul class="faq">
       <li>
         <div class="q">Brave скачивается каждый раз при запуске?</div>
-        <div class="a">Нет. Загрузка происходит только при первом запуске или если <code>brave.exe</code> удалён. Версия кешируется в файле <code>.version</code> внутри директории <code>%APPDATA%\KimShell\brave_portable\</code>. Проверка обновлений: <code>BRAVE_FORCE_UPDATE = False</code> по умолчанию.</div>
+        <div class="a">Нет. Загрузка происходит только при первом запуске или если <code>brave.exe</code> удалён. Версия кешируется в файле <code>.version</code> внутри директории установки.</div>
       </li>
       <li>
         <div class="q">Закрывает ли KimShell мой основной Brave?</div>
-        <div class="a">Нет. Завершение процессов происходит строго по PID (<code>taskkill /F /T /PID &lt;наш_pid&gt;</code>), а не по имени процесса (<code>/IM brave.exe</code>). Системный Brave, твои закладки, история и сессии не затрагиваются. Это критически важный фикс v2.0.</div>
+        <div class="a">Нет. Завершение процессов происходит строго по PID (<code>taskkill /T /PID &lt;наш_pid&gt;</code>), а не по имени процесса. Системный Brave, твои закладки и сессии не затрагиваются.</div>
       </li>
       <li>
         <div class="q">Где хранятся данные сессии?</div>
-        <div class="a">В <code>%APPDATA%\KimShell\</code> — поддиректории <code>temp\</code> (профили), <code>cache\</code>, <code>extension\</code> (JS-инъекции), <code>brave_portable\</code> (браузер). Всё удаляется при закрытии если включена опция "Очистка при закрытии". Secure wipe: 3 прохода (0x00 → 0xFF → random).</div>
+        <div class="a">В <code>%APPDATA%\KimShell\</code> — профили, карантин, расширение. Всё удаляется при закрытии если включена опция "Очистка при закрытии". Secure wipe: 3 прохода (0x00 → 0xFF → random).</div>
       </li>
       <li>
         <div class="q">Нужен ли VPN?</div>
-        <div class="a">KimShell скрывает аппаратный отпечаток браузера, но не IP-адрес. Для полной анонимности используй VPN вместе с KimShell. DNS-запросы также должны идти через VPN или защищённый DNS (Cloudflare 1.1.1.1).</div>
+        <div class="a">KimShell скрывает аппаратный отпечаток браузера, но не IP-адрес. Для полной анонимности используй VPN вместе с KimShell.</div>
       </li>
       <li>
         <div class="q">Почему Canvas fingerprint всё равно уникален?</div>
-        <div class="a">Canvas noise делает хеш отличным от других пользователей — это и есть цель. Главное что он меняется каждую сессию и не совпадает с твоим реальным браузером. Уникальность в пределах одной сессии — ожидаемое поведение.</div>
+        <div class="a">Canvas noise делает хеш отличным от других пользователей — это и есть цель. Главное что он меняется каждую сессию и не совпадает с твоим реальным браузером.</div>
       </li>
       <li>
         <div class="q">Работает ли на Windows 7 / 8?</div>
-        <div class="a">Нет. Требуется Windows 10 версии 1903 или новее для корректной работы PyQt6 и актуальных версий Brave. Windows 7 не поддерживает необходимые API безопасности.</div>
-      </li>
-      <li>
-        <div class="q">Можно ли использовать свой User-Agent?</div>
-        <div class="a">Технически да — модифицируй <code>hardware_spoof.py</code>, метод <code>generate_profile()</code>. Но рекомендуется оставить автогенерацию для реалистичности (Chrome 120-126 на Win10 x64).</div>
-      </li>
-      <li>
-        <div class="q">Что делает Secure Drop Zone?</div>
-        <div class="a">Принимает файлы через Drag & Drop или диалог. Опасные расширения (.exe, .dll, .bat, .js, .vbs, .ps1, .msi, .scr) помечаются предупреждением. Файл шифруется AES-256-GCM, сохраняется в карантин (<code>QUARANTINE_DIR</code>), затем расшифровывается для использования. Это изолирует потенциально опасные файлы от основной системы.</div>
+        <div class="a">Нет. Требуется Windows 10 1903+ для корректной работы PyQt6 и актуальных версий Brave.</div>
       </li>
     </ul>
   </div>
@@ -937,14 +697,9 @@ cd kimshell</code>
 <footer>
   <div class="container">
     <div class="logo">KimShell</div>
-    <p>Secure Browser Environment · v2.0 · Windows</p>
+    <p>Secure Browser Environment · v2.0</p>
     <br>
     <p class="mono">MIT LICENSE · MADE WITH PARANOID PRECISION 🛡️</p>
-    <br>
-    <div class="gh-buttons" style="margin-top: 20px;">
-      <a href="https://github.com/Tool-xx/KimShell" class="gh-btn">GitHub →</a>
-      <a href="#protection" class="gh-btn secondary">Защита ↑</a>
-    </div>
   </div>
 </footer>
 
