@@ -1,4 +1,4 @@
-# KimShell v2.0
+# KimShell
 
 ```
 ██╗  ██╗██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
@@ -17,13 +17,12 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3.11%2B-00ff88?style=flat-square&logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/Platform-Windows%2010%2F11-00d4ff?style=flat-square&logo=windows&logoColor=white">
-<img src="https://img.shields.io/badge/License-MIT-ff3366?style=flat-square">
 </p>
 
 <p align="center">
-<a href="https://yourname.github.io/kimshell">Documentation</a> ·
-<a href="https://github.com/yourname/kimshell/releases">Releases</a> ·
-<a href="https://github.com/yourname/kimshell/issues">Issues</a>
+<a href="https://github.com/Tool-xx/KimShell">Repository</a> ·
+<a href="https://github.com/Tool-xx/KimShell/releases">Releases</a> ·
+<a href="https://github.com/Tool-xx/KimShell/issues">Issues</a>
 </p>
 
 ---
@@ -91,8 +90,8 @@
 ## Быстрый старт
 
 ```bash
-git clone https://github.com/yourname/kimshell.git
-cd kimshell
+git clone https://github.com/Tool-xx/KimShell.git
+cd KimShell
 pip install -r requirements.txt
 python main.py
 ```
@@ -160,17 +159,17 @@ Utils
 
 Brave запускается:
 
-- С временным профилем
-- Через CLI-флаги
-- С расширением `content.js` (document_start)
-- В отдельной process group
+- С временным профилем  
+- Через CLI-флаги  
+- С расширением `content.js` (document_start)  
+- В отдельной process group  
 
 ---
 
 ## Структура проекта
 
 ```
-kimshell/
+KimShell/
 ├── main.py
 ├── core/
 ├── gui/
@@ -184,8 +183,8 @@ kimshell/
 
 Проверено на:
 
-- coveryourtracks.eff.org
-- browserleaks.com
+- coveryourtracks.eff.org  
+- browserleaks.com  
 
 Результаты:
 
@@ -216,20 +215,6 @@ kimshell/
 
 ---
 
-## Важно
-
-- Secure wipe на SSD не гарантирует физическое уничтожение данных
-- Используйте шифрование диска (BitLocker / VeraCrypt)
-- Используйте VPN при необходимости
-
----
-
-## License
-
-MIT
-
----
-
 <p align="center">
-Made with paranoid precision
+Built for controlled environments
 </p>
