@@ -1,19 +1,13 @@
-
----
-
-````markdown
 # KimShell v2.0
 
-<p align="center">
-<pre>
+```
 ██╗  ██╗██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
 ██║ ██╔╝██║████╗ ████║██╔════╝██║  ██║██╔════╝██║     ██║
 █████╔╝ ██║██╔████╔██║███████╗███████║█████╗  ██║     ██║
 ██╔═██╗ ██║██║╚██╔╝██║╚════██║██╔══██║██╔══╝  ██║     ██║
 ██║  ██╗██║██║ ╚═╝ ██║███████║██║  ██║███████╗███████╗███████╗
 ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-</pre>
-</p>
+```
 
 <p align="center">
 <b>Secure Browser Environment</b><br>
@@ -27,38 +21,42 @@
 </p>
 
 <p align="center">
-<a href="https://yourname.github.io/kimshell">📖 Documentation</a> ·
-<a href="https://github.com/yourname/kimshell/releases">🚀 Releases</a> ·
-<a href="https://github.com/yourname/kimshell/issues">🐛 Issues</a>
+<a href="https://yourname.github.io/kimshell">Documentation</a> ·
+<a href="https://github.com/yourname/kimshell/releases">Releases</a> ·
+<a href="https://github.com/yourname/kimshell/issues">Issues</a>
 </p>
 
 ---
 
-## 🎯 О проекте
+## О проекте
 
 **KimShell** создаёт полностью изолированную временную среду Brave Browser с подменой аппаратного отпечатка.
 
 Сайты видят:
-- несуществующий CPU  
-- случайный GPU  
-- изменённый экран  
-- подменённый timezone  
 
-Твой реальный fingerprint не используется.
+- Несуществующий CPU  
+- Случайный GPU  
+- Изменённый экран  
+- Подменённый timezone  
+
+Реальный fingerprint системы не используется.
 
 ---
 
-## 🔐 Ключевые возможности
+## Ключевые возможности
 
-### 🧬 Hardware Spoofing
+### Hardware Spoofing
+
 - Случайный CPU (AMD / Intel)
 - GPU (NVIDIA / AMD)
 - RAM
 - Screen resolution
 - Новый профиль каждую сессию
 
-### 🧩 JS-инъекции (document_start)
+### JS-инъекции (document_start)
+
 Перехват до загрузки страницы:
+
 - Canvas
 - WebGL
 - AudioContext
@@ -69,75 +67,78 @@
 - Sensors
 - Timezone
 
-### 🗂️ Полная изоляция
+### Полная изоляция
+
 - Временный профиль
 - Отдельная директория
 - Secure wipe при завершении
 - PID-based cleanup (без `taskkill /IM`)
 
-### 🌐 Network контроль
+### Network-контроль
+
 - Проверка публичного IP
 - Детект VPN
 - WebRTC блокировка
 
-### 📁 Secure Drop Zone
+### Secure Drop Zone
+
 - Drag & Drop
 - AES-256-GCM шифрование
 - Карантинная директория
 
 ---
 
-## 🚀 Быстрый старт
+## Быстрый старт
 
 ```bash
 git clone https://github.com/yourname/kimshell.git
 cd kimshell
 pip install -r requirements.txt
 python main.py
-````
+```
 
-При первом запуске автоматически загружается Brave (~120MB).
+При первом запуске автоматически загружается Brave (~120MB).  
 Далее используется кешированная версия.
 
-**Требования:**
+### Требования
 
-* Windows 10 / 11 (64-bit)
-* Python 3.11+
-* 4GB RAM
+- Windows 10 / 11 (64-bit)
+- Python 3.11+
+- 4 GB RAM
 
 ---
 
-## 🛡️ Защита от фингерпринтинга
+## Защита от фингерпринтинга
 
 ### Подменяется автоматически
 
 | Вектор        | Статус     |
-| ------------- | ---------- |
-| Canvas        | ✅          |
-| WebGL Vendor  | ✅          |
-| CPU Cores     | ✅          |
-| Device Memory | ✅          |
-| Timezone      | ✅          |
-| Battery API   | ✅          |
-| Media Devices | ✅          |
-| Plugins       | ✅          |
-| AudioContext  | ✅          |
-| Fonts         | ✅          |
-| Screen        | ✅          |
-| User-Agent    | ✅          |
+|---------------|------------|
+| Canvas        | ✅ |
+| WebGL Vendor  | ✅ |
+| CPU Cores     | ✅ |
+| Device Memory | ✅ |
+| Timezone      | ✅ |
+| Battery API   | ✅ |
+| Media Devices | ✅ |
+| Plugins       | ✅ |
+| AudioContext  | ✅ |
+| Fonts         | ✅ |
+| Screen        | ✅ |
+| User-Agent    | ✅ |
 | WebRTC        | 🚫 Blocked |
 | Sensors       | 🚫 Blocked |
 
 ### Требует ручной настройки
 
-| Вектор | Рекомендация          |
-| ------ | --------------------- |
-| DNS    | Включить 1.1.1.1      |
+| Вектор | Рекомендация |
+|--------|--------------|
+| DNS    | Включить 1.1.1.1 |
 | VPN    | Использовать отдельно |
 
 ---
 
-## 🏗️ Архитектура
+## Архитектура
 
 ```
 GUI (PyQt6)
@@ -159,14 +160,14 @@ Utils
 
 Brave запускается:
 
-* с временным профилем
-* через CLI-флаги
-* с расширением content.js (document_start)
-* в отдельной process group
+- С временным профилем
+- Через CLI-флаги
+- С расширением `content.js` (document_start)
+- В отдельной process group
 
 ---
 
-## 📁 Структура проекта
+## Структура проекта
 
 ```
 kimshell/
@@ -179,59 +180,56 @@ kimshell/
 
 ---
 
-## 🧪 Тестирование
+## Тестирование
 
 Проверено на:
 
-* coveryourtracks.eff.org
-* browserleaks.com
+- coveryourtracks.eff.org
+- browserleaks.com
 
 Результаты:
 
-* WebRTC leak — ❌ отсутствует
-* Canvas — 🎭 уникален для каждой сессии
-* WebGL — 🎭 spoofed
-* Tracking — ❌ blocked
+- WebRTC leak — отсутствует  
+- Canvas — уникален для каждой сессии  
+- WebGL — spoofed  
+- Tracking — blocked  
 
 ---
 
-## ❓ FAQ
+## FAQ
 
-**Brave скачивается каждый раз?**
+**Brave скачивается каждый раз?**  
 Нет. Только при первом запуске.
 
-**Закроется ли мой основной Brave?**
+**Закроется ли основной Brave?**  
 Нет. Завершение строго по PID.
 
-**Где хранятся данные?**
-`%APPDATA%\KimShell\`
+**Где хранятся данные?**  
+`%APPDATA%\KimShell\`  
 Удаляются при завершении (3-pass wipe).
 
-**Заменяет ли VPN?**
-Нет. IP не скрывается.
+**Заменяет ли VPN?**  
+Нет. IP-адрес не скрывается.
 
-**Почему Canvas уникальный?**
+**Почему Canvas уникальный?**  
 Он меняется каждую сессию — это защита от трекинга.
 
 ---
 
-## ⚠️ Важно
+## Важно
 
-* Secure wipe на SSD не гарантирует физическое уничтожение данных
-* Используй шифрование диска (BitLocker / VeraCrypt)
-* Используй VPN при необходимости
+- Secure wipe на SSD не гарантирует физическое уничтожение данных
+- Используйте шифрование диска (BitLocker / VeraCrypt)
+- Используйте VPN при необходимости
 
 ---
 
-## 📄 License
+## License
 
 MIT
 
 ---
 
 <p align="center">
-Made with paranoid precision 🛡️
+Made with paranoid precision
 </p>
-```
-
----
