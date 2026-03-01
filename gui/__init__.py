@@ -1,1 +1,0 @@
-"""KimShell GUI package."""
