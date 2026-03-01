@@ -1,114 +1,166 @@
 
+````markdown
+# KimShell v2.0
 
-```markdown
-# 🧪 KimShell v2.0
+<p align="center">
+<pre>
+██╗  ██╗██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
+██║ ██╔╝██║████╗ ████║██╔════╝██║  ██║██╔════╝██║     ██║
+█████╔╝ ██║██╔████╔██║███████╗███████║█████╗  ██║     ██║
+██╔═██╗ ██║██║╚██╔╝██║╚════██║██╔══██║██╔══╝  ██║     ██║
+██║  ██╗██║██║ ╚═╝ ██║███████║██║  ██║███████╗███████╗███████╗
+╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+</pre>
+</p>
 
-```
-██████╗ ██╗███╗   ███╗███████╗██╗  ██╗███████╗██╗     ██╗
-██╔══██╗██║████╗ ████║██╔════╝██║  ██║██╔════╝██║     ██║
-██║  ██║██║██╔████╔██║███████╗███████║█████╗  ██║     ██║
-██║  ██║██║██║╚██╔╝██║╚════██║██╔══██║██╔══╝  ██║     ██║
-██████╔╝██║██║ ╚═╝ ██║███████║██║  ██║███████╗███████╗███████╗
-╚═════╝ ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-```
+<p align="center">
+<b>Secure Browser Environment</b><br>
+Изолированная среда Brave с аппаратным spoofing и анти-фингерпринтингом
+</p>
 
-**KimShell** — это **Secure Browser Environment**: изолированный браузер Brave с полным спуфингом аппаратного отпечатка и защитой от фингерпринтинга.
+<p align="center">
+<img src="https://img.shields.io/badge/Python-3.11%2B-00ff88?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Platform-Windows%2010%2F11-00d4ff?style=flat-square&logo=windows&logoColor=white">
+<img src="https://img.shields.io/badge/License-MIT-ff3366?style=flat-square">
+</p>
+
+<p align="center">
+<a href="https://yourname.github.io/kimshell">📖 Documentation</a> ·
+<a href="https://github.com/yourname/kimshell/releases">🚀 Releases</a> ·
+<a href="https://github.com/yourname/kimshell/issues">🐛 Issues</a>
+</p>
 
 ---
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-00ff88?style=flat-square&logo=python&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-00d4ff?style=flat-square&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-ff3366?style=flat-square)
+## 🎯 О проекте
 
-[📖 Документация](https://yourname.github.io/kimshell) · [🚀 Релизы](https://github.com/yourname/kimshell/releases) · [🐛 Issues](https://github.com/yourname/kimshell/issues)
+**KimShell** создаёт полностью изолированную временную среду Brave Browser с подменой аппаратного отпечатка.
+
+Сайты видят:
+- несуществующий CPU  
+- случайный GPU  
+- изменённый экран  
+- подменённый timezone  
+
+Твой реальный fingerprint не используется.
 
 ---
 
-## 🎯 Что делает KimShell
+## 🔐 Ключевые возможности
 
-KimShell создаёт временный профиль Brave Browser с поддельными характеристиками компьютера.  
-Сайты видят вымышленные CPU, GPU, экран и timezone — твой реальный отпечаток остаётся скрытым.
+### 🧬 Hardware Spoofing
+- Случайный CPU (AMD / Intel)
+- GPU (NVIDIA / AMD)
+- RAM
+- Screen resolution
+- Новый профиль каждую сессию
 
-### 🔑 Ключевые возможности
+### 🧩 JS-инъекции (document_start)
+Перехват до загрузки страницы:
+- Canvas
+- WebGL
+- AudioContext
+- Battery API
+- Plugins
+- Media Devices
+- Fonts
+- Sensors
+- Timezone
 
-| Функция | Описание |
-|----------|-----------|
-| 🧬 **Hardware Spoofing** | Генерация случайного CPU, GPU, RAM, экрана при каждой сессии |
-| 🧩 **JS-инъекции** | Перехват Canvas, WebGL, Battery, AudioContext, Plugins, Fonts до загрузки страницы |
-| 🗂️ **Изоляция профиля** | Новая временная директория на каждый запуск, secure wipe при закрытии |
-| 🛡️ **PID-only cleanup** | Завершает только свои процессы Brave — системный не трогает |
-| 🌐 **VPN-детект** | Проверяет публичный IP и VPN-индикаторы перед запуском |
-| 📁 **Secure Drop Zone** | Drag & Drop с AES-256-GCM шифрованием в карантин |
+### 🗂️ Полная изоляция
+- Временный профиль
+- Отдельная директория
+- Secure wipe при завершении
+- PID-based cleanup (без `taskkill /IM`)
+
+### 🌐 Network контроль
+- Проверка публичного IP
+- Детект VPN
+- WebRTC блокировка
+
+### 📁 Secure Drop Zone
+- Drag & Drop
+- AES-256-GCM шифрование
+- Карантинная директория
 
 ---
 
 ## 🚀 Быстрый старт
 
 ```bash
-# Клонировать репозиторий
 git clone https://github.com/yourname/kimshell.git
 cd kimshell
-
-# Установить зависимости
 pip install -r requirements.txt
-
-# Запустить
 python main.py
-```
+````
 
-При первом запуске автоматически скачивается Brave (~120 МБ).  
-Повторные запуски используют кешированную версию.
+При первом запуске автоматически загружается Brave (~120MB).
+Далее используется кешированная версия.
 
-**Требования:** Windows 10/11 (64‑bit), Python 3.11+, 4 GB RAM
+**Требования:**
+
+* Windows 10 / 11 (64-bit)
+* Python 3.11+
+* 4GB RAM
 
 ---
 
 ## 🛡️ Защита от фингерпринтинга
 
-### Полностью подменяются (14 векторов)
+### Подменяется автоматически
 
-*(таблица без изменений — уже идеальна)*
+| Вектор        | Статус     |
+| ------------- | ---------- |
+| Canvas        | ✅          |
+| WebGL Vendor  | ✅          |
+| CPU Cores     | ✅          |
+| Device Memory | ✅          |
+| Timezone      | ✅          |
+| Battery API   | ✅          |
+| Media Devices | ✅          |
+| Plugins       | ✅          |
+| AudioContext  | ✅          |
+| Fonts         | ✅          |
+| Screen        | ✅          |
+| User-Agent    | ✅          |
+| WebRTC        | 🚫 Blocked |
+| Sensors       | 🚫 Blocked |
 
-### Ручная настройка
+### Требует ручной настройки
 
-| Вектор | Рекомендация |
-|--------|---------------|
-| DNS | Включить Cloudflare DNS (1.1.1.1) в настройках Brave |
-| Системные шрифты | Использовать стандартный набор Windows‑шрифтов |
+| Вектор | Рекомендация          |
+| ------ | --------------------- |
+| DNS    | Включить 1.1.1.1      |
+| VPN    | Использовать отдельно |
 
 ---
 
 ## 🏗️ Архитектура
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                        KimShell v2.0                         │
-├──────────────────────────────────────────────────────────────┤
-│  GUI (PyQt6)                                                 │
-│  ├── LoadingScreen — анимированный экран инициализации       │
-│  ├── MainWindow — управление сессией, лог, drop‑zone         │
-│  └── SecureDropZone — AES‑256‑GCM карантин                   │
-├──────────────────────────────────────────────────────────────┤
-│  Core                                                        │
-│  ├── HardwareSpoofer — генерация профиля железа              │
-│  ├── JSInjector — создание расширения с подделкой JS-данных  │
-│  ├── BraveManager — загрузка, профиль, launch‑command        │
-│  ├── NetworkChecker — VPN/IP‑детект                          │
-│  └── CleanupManager — secure wipe, atexit, SIGINT            │
-├──────────────────────────────────────────────────────────────┤
-│  Utils                                                       │
-│  ├── Config — пути (%APPDATA%\KimShell), параметры            │
-│  └── Helpers — logger, secure_wipe(3 passes), subprocess      │
-└──────────────────────────────────────────────────────────────┘
-                             │
-                             ▼
-┌──────────────────────────────────────────────────────────────┐
-│          Brave Browser (портативный, ~120 MB)                │
-│  ├── Профиль: временная директория                           │
-│  ├── Расширение: content.js (document_start, world=MAIN)     │
-│  └── Флаги: --disable-gpu, --force-webrtc..., --user-agent   │
-└──────────────────────────────────────────────────────────────┘
+GUI (PyQt6)
+ ├── LoadingScreen
+ ├── MainWindow
+ └── SecureDropZone
+
+Core
+ ├── HardwareSpoofer
+ ├── JSInjector
+ ├── BraveManager
+ ├── NetworkChecker
+ └── CleanupManager
+
+Utils
+ ├── Config
+ └── Helpers
 ```
+
+Brave запускается:
+
+* с временным профилем
+* через CLI-флаги
+* с расширением content.js (document_start)
+* в отдельной process group
 
 ---
 
@@ -116,73 +168,68 @@ python main.py
 
 ```
 kimshell/
-├── main.py                 ← Точка входа, проверка Windows
-├── requirements.txt
-├── README.md
-│
+├── main.py
 ├── core/
-│   ├── brave_manager.py    ← Загрузка, профиль, команда запуска
-│   ├── cleanup.py          ← Secure wipe (3 passes), atexit, SIGINT
-│   ├── hardware_spoof.py   ← Генератор профилей (CPU/GPU/RAM/UA)
-│   ├── js_injector.py      ← Создание Brave‑расширения
-│   └── network_checker.py  ← VPN‑детект, публичный IP
-│
 ├── gui/
-│   ├── dnd_widget.py       ← Drag & Drop + AES‑256‑GCM карантин
-│   ├── loading_screen.py   ← Анимированный экран загрузки
-│   ├── main_window.py      ← Главное окно, InitThread
-│   └── styles.py           ← Тёмная тема QSS
-│
-└── utils/
-    ├── config.py           ← Пути (%APPDATA%\KimShell), параметры
-    └── helpers.py          ← Logger, secure_wipe, run_command
+├── utils/
+└── requirements.txt
 ```
 
 ---
 
-## 🧪 Результаты тестов
+## 🧪 Тестирование
 
-*(оригинальная таблица сохранена, только немного выровнены колонки)*
+Проверено на:
+
+* coveryourtracks.eff.org
+* browserleaks.com
+
+Результаты:
+
+* WebRTC leak — ❌ отсутствует
+* Canvas — 🎭 уникален для каждой сессии
+* WebGL — 🎭 spoofed
+* Tracking — ❌ blocked
 
 ---
 
 ## ❓ FAQ
 
-**❓ Brave скачивается каждый раз?**  
-Нет, только при первом запуске или если `brave.exe` удалён — версия кешируется.
+**Brave скачивается каждый раз?**
+Нет. Только при первом запуске.
 
-**❓ Закроет ли KimShell мой основной Brave?**  
-Нет. Завершение строго по PID, не по имени процесса, системный Brave не трогается.
+**Закроется ли мой основной Brave?**
+Нет. Завершение строго по PID.
 
-**❓ Где хранятся данные сессии?**  
-В `%APPDATA%\KimShell\` — профили, карантин и расширение. Всё удаляется при закрытии (secure wipe ×3).
+**Где хранятся данные?**
+`%APPDATA%\KimShell\`
+Удаляются при завершении (3-pass wipe).
 
-**❓ Нужен ли VPN?**  
-KimShell скрывает браузерный отпечаток, но не IP. Для полной анонимности используй VPN + KimShell.
+**Заменяет ли VPN?**
+Нет. IP не скрывается.
 
-**❓ Почему Canvas fingerprint уникален?**  
-Он меняется при каждой сессии и никогда не совпадает с настоящим отпечатком.
-
-**❓ Работает на Windows 7?**  
-Нет. Требуется Windows 10 (1903+) и актуальные компоненты PyQt6/Brave.
+**Почему Canvas уникальный?**
+Он меняется каждую сессию — это защита от трекинга.
 
 ---
 
-## ⚠️ Безопасность
+## ⚠️ Важно
 
-- **Secure wipe** ограничен wear‑leveling‑контроллером SSD/NVMe — для чувствительных данных используй полное шифрование (BitLocker / VeraCrypt).  
-- **DNS:** Включай Cloudflare DNS (1.1.1.1).  
-- **VPN:** KimShell не заменяет VPN, а работает совместно.
+* Secure wipe на SSD не гарантирует физическое уничтожение данных
+* Используй шифрование диска (BitLocker / VeraCrypt)
+* Используй VPN при необходимости
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
-MIT License — свободное использование, модификация и распространение.
+MIT
 
 ---
 
 <p align="center">
-  <sub>Made with paranoid precision 🛡️</sub>
+Made with paranoid precision 🛡️
 </p>
 ```
+
+
